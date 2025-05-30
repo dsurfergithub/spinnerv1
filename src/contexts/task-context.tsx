@@ -1,3 +1,4 @@
+
 "use client";
 import type { ReactNode } from 'react';
 import { createContext, useContext, useState, useEffect } from 'react';
@@ -12,6 +13,7 @@ interface TaskContextType {
   completedTasks: Task[];
   selectedTask: Task | null;
   addTask: (taskName: string) => void;
+  deleteTask: (taskId: string) => void;
   markTaskAsComplete: (taskId: string) => void;
   spinWheel: () => void;
   isSpinning: boolean;
@@ -69,6 +71,13 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
     setTasks((prevTasks) => [...prevTasks, newTask]);
   };
 
+  const deleteTask = (taskId: string) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+    if (selectedTask?.id === taskId) {
+      setSelectedTask(null);
+    }
+  };
+
   const markTaskAsComplete = (taskId: string) => {
     const taskToComplete = tasks.find((task) => task.id === taskId);
     if (taskToComplete) {
@@ -107,6 +116,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
         completedTasks,
         selectedTask,
         addTask,
+        deleteTask,
         markTaskAsComplete,
         spinWheel,
         isSpinning,
