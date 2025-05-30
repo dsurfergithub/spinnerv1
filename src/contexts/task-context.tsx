@@ -81,7 +81,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
   const markTaskAsComplete = (taskId: string) => {
     const taskToComplete = tasks.find((task) => task.id === taskId);
     if (taskToComplete) {
-      setCompletedTasks((prevCompleted) => [...prevCompleted, taskToComplete]);
+      setCompletedTasks((prevCompleted) => [taskToComplete, ...prevCompleted]);
       setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
       if (selectedTask?.id === taskId) {
         setSelectedTask(null);
