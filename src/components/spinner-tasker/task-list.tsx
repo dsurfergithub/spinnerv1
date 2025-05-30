@@ -1,3 +1,4 @@
+
 "use client";
 import { useTasks } from '@/contexts/task-context';
 import { TaskItem } from './task-item';
@@ -10,7 +11,7 @@ export function TaskList() {
   return (
     <Card className="w-full shadow-lg">
       <CardHeader>
-        <CardTitle className="font-headline text-xl text-primary">Tareas para Girar</CardTitle>
+        <CardTitle className="font-headline text-xl text-primary">Lista de Tareas</CardTitle>
       </CardHeader>
       <CardContent>
         {tasks.length === 0 ? (
@@ -28,3 +29,4 @@ export function TaskList() {
     </Card>
   );
 }
+
