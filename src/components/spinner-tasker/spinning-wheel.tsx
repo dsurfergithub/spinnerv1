@@ -110,7 +110,7 @@ export function SpinningWheel() {
             })
           ) : (
             <div className="w-full h-full flex items-center justify-center rounded-full bg-muted">
-              <p className="text-muted-foreground p-4 text-center">Add tasks to spin the wheel!</p>
+              <p className="text-muted-foreground p-4 text-center">¡Añade tareas para girar la rueda!</p>
             </div>
           )}
         </div>
@@ -121,10 +121,10 @@ export function SpinningWheel() {
         disabled={tasks.length === 0 || isSpinning || !isClient}
         size="lg"
         className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-3 px-6 text-lg shadow-md transition-transform hover:scale-105 active:scale-95"
-        aria-label="Spin the wheel"
+        aria-label="Girar la rueda"
       >
         <PlayCircle className="mr-2 h-6 w-6" />
-        {isSpinning ? 'Spinning...' : 'Spin the Wheel!'}
+        {isSpinning ? 'Girando...' : '¡Girar la Rueda!'}
       </Button>
     </div>
   );

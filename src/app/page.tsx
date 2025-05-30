@@ -17,7 +17,7 @@ export default function Home() {
               Spinner Tasker
             </h1>
           </div>
-          <p className="text-md md:text-lg text-muted-foreground mt-2">Let the wheel decide your next task!</p>
+          <p className="text-md md:text-lg text-muted-foreground mt-2">¡Deja que la rueda decida tu próxima tarea!</p>
         </header>
 
         <main className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
@@ -34,7 +34,7 @@ export default function Home() {
         </main>
 
         <footer className="mt-12 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Spinner Tasker. Spin your way to productivity!</p>
+          <p>&copy; {new Date().getFullYear()} Spinner Tasker. ¡Gira hacia la productividad!</p>
         </footer>
       </div>
     </TaskProvider>

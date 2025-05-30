@@ -24,7 +24,7 @@ export function TaskItem({ task, isCompletedList = false }: TaskItemProps) {
           variant="ghost"
           size="icon"
           onClick={() => markTaskAsComplete(task.id)}
-          aria-label={`Mark ${task.name} as complete`}
+          aria-label={`Marcar ${task.name} como completa`}
           className="text-green-600 hover:text-green-700 hover:bg-green-100 dark:text-green-400 dark:hover:text-green-500 dark:hover:bg-green-900/50"
         >
           <CheckCircle2 className="h-5 w-5" />

@@ -11,11 +11,11 @@ export function SelectedTaskDisplay() {
     return (
       <Card className="w-full max-w-md text-center shadow-xl border-accent border-2 animate-pulse" aria-live="assertive">
         <CardHeader>
-          <CardTitle className="font-headline text-2xl text-accent">Spinning...</CardTitle>
+          <CardTitle className="font-headline text-2xl text-accent">Girando...</CardTitle>
         </CardHeader>
         <CardContent>
           <RotateCw className="h-16 w-16 mx-auto text-accent animate-spin" data-ai-hint="loader spin" />
-          <CardDescription className="mt-4 text-lg">Let's see what fate decides!</CardDescription>
+          <CardDescription className="mt-4 text-lg">¡Veamos qué decide el destino!</CardDescription>
         </CardContent>
       </Card>
     );
@@ -24,13 +24,13 @@ export function SelectedTaskDisplay() {
   if (!selectedTask) {
     const messageCardContent = tasks.length > 0 ? (
       <>
-        <CardTitle className="font-headline text-2xl">Ready to Spin?</CardTitle>
-        <CardDescription className="text-lg">Click the "Spin the Wheel!" button to select your next task.</CardDescription>
+        <CardTitle className="font-headline text-2xl">¿Listo para Girar?</CardTitle>
+        <CardDescription className="text-lg">¡Haz clic en el botón "¡Girar la Rueda!" para seleccionar tu próxima tarea.</CardDescription>
       </>
     ) : (
       <>
-        <CardTitle className="font-headline text-2xl">Add Tasks to Spin</CardTitle>
-        <CardDescription className="text-lg">Add some tasks using the input field, then spin the wheel!</CardDescription>
+        <CardTitle className="font-headline text-2xl">Añade Tareas para Girar</CardTitle>
+        <CardDescription className="text-lg">¡Añade algunas tareas usando el campo de entrada, luego gira la rueda!</CardDescription>
       </>
     );
     return (
@@ -44,10 +44,10 @@ export function SelectedTaskDisplay() {
     <Card className="w-full max-w-md text-center shadow-xl border-primary border-2" aria-live="assertive">
       <CardHeader>
         <CardTitle className="font-headline text-3xl text-primary">{selectedTask.name}</CardTitle>
-        <CardDescription className="text-md">This is your chosen task!</CardDescription>
+        <CardDescription className="text-md">¡Esta es tu tarea elegida!</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="text-lg">What will you do?</p>
+        <p className="text-lg">¿Qué harás?</p>
       </CardContent>
       <CardFooter className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
         <Button
@@ -55,12 +55,12 @@ export function SelectedTaskDisplay() {
             markTaskAsComplete(selectedTask.id);
           }}
           className="bg-green-500 hover:bg-green-600 text-white dark:bg-green-600 dark:hover:bg-green-700"
-          aria-label={`Mark ${selectedTask.name} as complete`}
+          aria-label={`Marcar ${selectedTask.name} como completa`}
         >
-          <CheckCircle2 className="mr-2 h-5 w-5" /> Mark as Complete
+          <CheckCircle2 className="mr-2 h-5 w-5" /> Marcar como Completa
         </Button>
-        <Button variant="outline" onClick={clearSelectedTask} aria-label="Choose another task or spin again">
-          Clear Selection
+        <Button variant="outline" onClick={clearSelectedTask} aria-label="Elige otra tarea o gira de nuevo">
+          Borrar Selección
         </Button>
       </CardFooter>
     </Card>

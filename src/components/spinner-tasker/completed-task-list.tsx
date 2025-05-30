@@ -10,11 +10,11 @@ export function CompletedTaskList() {
   return (
     <Card className="w-full shadow-lg">
       <CardHeader>
-        <CardTitle className="font-headline text-xl text-primary">Completed Tasks</CardTitle>
+        <CardTitle className="font-headline text-xl text-primary">Tareas Completadas</CardTitle>
       </CardHeader>
       <CardContent>
         {completedTasks.length === 0 ? (
-          <p className="text-muted-foreground text-center py-4">No tasks completed yet.</p>
+          <p className="text-muted-foreground text-center py-4">Aún no hay tareas completadas.</p>
         ) : (
           <ScrollArea className="h-[200px] pr-1"> {/* Reduced pr slightly */}
             <ul className="space-y-2">

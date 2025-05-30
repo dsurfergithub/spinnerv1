@@ -10,11 +10,11 @@ export function TaskList() {
   return (
     <Card className="w-full shadow-lg">
       <CardHeader>
-        <CardTitle className="font-headline text-xl text-primary">Tasks to Spin</CardTitle>
+        <CardTitle className="font-headline text-xl text-primary">Tareas para Girar</CardTitle>
       </CardHeader>
       <CardContent>
         {tasks.length === 0 ? (
-          <p className="text-muted-foreground text-center py-4">No tasks added yet. Add some tasks to get started!</p>
+          <p className="text-muted-foreground text-center py-4">Aún no hay tareas añadidas. ¡Añade algunas tareas para empezar!</p>
         ) : (
           <ScrollArea className="h-[200px] pr-1"> {/* Reduced pr slightly */}
             <ul className="space-y-2">

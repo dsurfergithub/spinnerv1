@@ -21,7 +21,7 @@ export function TaskInput() {
   return (
     <Card className="w-full shadow-lg">
       <CardHeader>
-        <CardTitle className="font-headline text-xl text-primary">Add New Task</CardTitle>
+        <CardTitle className="font-headline text-xl text-primary">Añadir Nueva Tarea</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="flex gap-2">
@@ -29,12 +29,12 @@ export function TaskInput() {
             type="text"
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
-            placeholder="Enter task description"
+            placeholder="Introduce la descripción de la tarea"
             className="flex-grow bg-input placeholder:text-muted-foreground"
-            aria-label="New task name"
+            aria-label="Nombre de la nueva tarea"
           />
-          <Button type="submit" variant="default" aria-label="Add task">
-            <PlusCircle className="mr-2 h-5 w-5" /> Add
+          <Button type="submit" variant="default" aria-label="Añadir tarea">
+            <PlusCircle className="mr-2 h-5 w-5" /> Añadir
           </Button>
         </form>
       </CardContent>
