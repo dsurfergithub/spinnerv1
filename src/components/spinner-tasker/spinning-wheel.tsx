@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useState, useRef } from 'react';
 import { useTasks } from '@/contexts/task-context';
@@ -43,8 +44,8 @@ export function SpinningWheel() {
         setRotation(finalRotationValue);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSpinning, selectedTask, isClient]); // tasks removed to avoid re-calc if tasks change mid-spin (unlikely)
+  // tasks is now included in the dependency array
+  }, [isSpinning, selectedTask, tasks, isClient]); 
 
 
   const segmentAngle = tasks.length > 0 ? 360 / tasks.length : 360;
@@ -129,3 +130,4 @@ export function SpinningWheel() {
     </div>
   );
 }
+
