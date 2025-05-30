@@ -18,6 +18,7 @@ interface TaskContextType {
   spinWheel: () => void;
   isSpinning: boolean;
   clearSelectedTask: () => void;
+  resetAllData: () => void; // Added reset function
 }
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
@@ -109,6 +110,17 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
     setSelectedTask(null);
   };
 
+  const resetAllData = () => {
+    setTasks([]);
+    setCompletedTasks([]);
+    setSelectedTask(null);
+    setIsSpinning(false);
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('spinnerTasks');
+      localStorage.removeItem('spinnerCompletedTasks');
+    }
+  };
+
   return (
     <TaskContext.Provider
       value={{
@@ -120,7 +132,8 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
         markTaskAsComplete,
         spinWheel,
         isSpinning,
-        clearSelectedTask
+        clearSelectedTask,
+        resetAllData // Provide the reset function
       }}
     >
       {children}

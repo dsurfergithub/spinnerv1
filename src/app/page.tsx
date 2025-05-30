@@ -1,5 +1,6 @@
 
-import { TaskProvider } from '@/contexts/task-context';
+"use client"; // Required for useTasks hook and AlertDialog
+import { TaskProvider, useTasks } from '@/contexts/task-context';
 import { SpinnerLogoIcon } from '@/components/icons/spinner-logo-icon';
 import { SpinningWheel } from '@/components/spinner-tasker/spinning-wheel';
 import { TaskInput } from '@/components/spinner-tasker/task-input';
@@ -7,6 +8,52 @@ import { SelectedTaskDisplay } from '@/components/spinner-tasker/selected-task-d
 import { TaskList } from '@/components/spinner-tasker/task-list';
 import { CompletedTaskList } from '@/components/spinner-tasker/completed-task-list';
 import { ThemeToggleButton } from '@/components/theme-toggle-button';
+import { Button } from '@/components/ui/button';
+import { RotateCcw } from 'lucide-react';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+
+function ResetAppButton() {
+  const { resetAllData } = useTasks();
+
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="destructive" size="sm">
+          <RotateCcw className="mr-2 h-4 w-4" />
+          Reiniciar Aplicación
+        </Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>¿Estás absolutamente seguro?</AlertDialogTitle>
+          <AlertDialogDescription>
+            Esta acción no se puede deshacer. Esto borrará permanentemente todas tus tareas pendientes y completadas.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          <AlertDialogAction
+            onClick={resetAllData}
+            className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
+          >
+            Sí, borrar todo
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
+
 
 export default function Home() {
   return (
@@ -37,7 +84,8 @@ export default function Home() {
           </aside>
         </main>
 
-        <footer className="mt-12 text-center text-sm text-muted-foreground">
+        <footer className="mt-12 text-center text-sm text-muted-foreground flex flex-col items-center gap-4">
+          <ResetAppButton />
           <p>&copy; {new Date().getFullYear()} Spinner Tasker. ¡Gira hacia la productividad!</p>
         </footer>
       </div>
